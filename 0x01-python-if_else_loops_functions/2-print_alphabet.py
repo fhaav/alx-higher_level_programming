@@ -2,4 +2,4 @@
 alpha = ""
 for i in range(26):
     alpha = alpha + chr(ord("a") + i)
-print(f"{alpha}", end="")
+print("{}".format(alpha), end="")
