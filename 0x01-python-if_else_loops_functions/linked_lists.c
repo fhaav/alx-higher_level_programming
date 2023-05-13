@@ -32,9 +32,12 @@ size_t print_listint(const listint_t *h)
  * @n: integer to be included in node
  * Return: address of the new element or NULL if it fails
  */
-listint_t *add_nodeint(listint_t **head, const int n)
+listint_t *add_nodeint_end(listint_t **head, const int n)
 {
 	listint_t *new_node;
+	listint_t *current;
+
+	current = *head;
 
 	/* allocate memory for the new node */
 	new_node = malloc(sizeof(listint_t));
@@ -43,10 +46,16 @@ listint_t *add_nodeint(listint_t **head, const int n)
 
 	/* set the new node's value and point it to the head of the list */
 	new_node->n = n;
-	new_node->next = *head;
+	new_node->next = NULL;
 
-	/* set the head of the list to the new node */
-	*head = new_node;
+	if (*head == NULL)
+		*head = new_node;
+	else
+	{
+		while (current->next != NULL)
+			current = current->next;
+		current->next = new_node;
+	}
 
 	return (new_node);
 }
