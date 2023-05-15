@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-
 def add_tuple(tuple_a=(), tuple_b=()):
     if not isinstance(tuple_a, tuple) or len(tuple_a) == 0:
         tuple_a = (0, 0)
