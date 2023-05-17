@@ -7,4 +7,4 @@ def multiply_by_2(a_dictionary):
             if isinstance(value, int):
                 new_dict[key] = value * 2
 
-        return new_dict
+    return new_dict
