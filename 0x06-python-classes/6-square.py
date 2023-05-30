@@ -20,6 +20,7 @@ class Square:
         """
 
         self.size = size
+        self.position = position
 
     @property
     def size(self):
@@ -68,7 +69,7 @@ class Square:
         """Prints the square using '#' character."""
         if self.__size == 0:
             print()
-        elif self.__size > 0:
+        else:
             for _ in range(self.__position[1]):
                 print()
             for _ in range(self.__size):
