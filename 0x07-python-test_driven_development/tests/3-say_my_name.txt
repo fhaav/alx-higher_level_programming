@@ -1,0 +1,45 @@
+The module "3-say_my_name" provides functionality for printing a name.
+=======================================================
+
+How to use the "say_my_name" function
+=======================================================
+
+To start, import the "say_my_name" function from the "3-say_my_name" module:
+::
+
+	>>> say_my_name = __import__("3-say_my_name").say_my_name
+
+
+You can use the function by passing the first name and last name as arguments:
+::
+
+	>>> say_my_name("Favour", "Edobor")
+	My name is Favour Edobor
+
+
+If only the first name is provided, it will be printed without the last name:
+::
+
+	>>> say_my_name("Favour")
+	My name is Favour 
+
+A TypeError is raised if a non-string argument is passed:
+::
+
+	>>> say_my_name(20)
+	Traceback (most recent call last):
+	...
+	TypeError: first_name must be a string
+
+	>>> say_my_name("Favour", 20)
+	Traceback (most recent call last):
+	...
+	TypeError: last_name must be a string
+
+If no arguments are provided, a TypeError is raised indicating the missing arguments:
+::
+
+	>>> say_my_name()
+	Traceback (most recent call last):
+	...
+	TypeError: say_my_name() missing 1 required positional argument: 'first_name'
