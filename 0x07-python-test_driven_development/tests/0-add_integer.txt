@@ -1,0 +1,74 @@
+The module "0-add_integer"
+==========================
+
+Using the "add_integer" function
+-------------------------------
+
+To begin, import the "add_integer" function from the "0-add_integer" module:
+::
+
+    >>> add_integer = __import__("0-add_integer").add_integer
+
+Now you can use it:
+::
+
+    >>> add_integer(1, 1)
+    2
+
+The argument "b" in "add_integer(a, b)" has a default value of 98:
+::
+
+    >>> add_integer(0)
+    98
+
+It accepts negative numbers as well:
+::
+
+    >>> add_integer(-1, 1)
+    0
+
+    >>> add_integer(-1, -1)
+    -2
+
+Float numbers are also supported:
+::
+
+    >>> add_integer(1.55, 1)
+    2
+
+If non-integers and non-floats are used, it throws a TypeError:
+::
+
+    >>> add_integer("1", 1)
+    Traceback (most recent call last):
+    ...
+    TypeError: a must be an integer
+
+    >>> add_integer(1, "1")
+    Traceback (most recent call last):
+    ...
+    TypeError: b must be an integer
+
+When a float infinity is passed, it throws an OverflowError:
+::
+
+    >>> add_integer(float('inf'), 1)
+    Traceback (most recent call last):
+    ...
+    OverflowError: cannot convert float infinity to integer
+
+When a float NaN is passed, it throws a ValueError:
+::
+
+    >>> add_integer(float('nan'), 1)
+    Traceback (most recent call last):
+    ...
+    ValueError: cannot convert float NaN to integer
+
+If no argument is provided, it throws a TypeError:
+::
+
+    >>> add_integer()
+    Traceback (most recent call last):
+    ...
+    TypeError: add_integer() missing 1 required positional argument: 'a'
