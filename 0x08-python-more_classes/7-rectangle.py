@@ -13,8 +13,6 @@ class Rectangle:
         number_of_instances (int): Number of Rectangle instances.
         print_symbol (any): Symbol used for string representation.
     """
-
-
     number_of_instances = 0
     print_symbol = "#"
 
@@ -26,9 +24,9 @@ class Rectangle:
             width (int): Width of the rectangle (default is 0).
             height (int): Height of the rectangle (default is 0).
         """
+        type(self).number_of_instances += 1
         self.width = width
         self.height = height
-        type(self).number_of_instances += 1
 
     @property
     def width(self):
