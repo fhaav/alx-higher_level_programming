@@ -1,0 +1,67 @@
+Testing the "1-my_list" module
+===============================
+
+Using the MyList class
+===============================
+
+Importing the MyList class from the "1-my_list" module:
+::
+
+	>>> MyList = __import__('1-my_list').MyList
+
+Instantiating an object of MyList:
+::
+
+	>>> my_list = MyList()
+
+Using the my_list object:
+::
+
+	>>> my_list.append(1)
+	>>> my_list.append(4)
+	>>> my_list.append(2)
+	>>> my_list.append(3)
+	>>> my_list.append(5)
+	>>> print(my_list)
+	[1, 4, 2, 3, 5]
+	>>> sorted_list = sorted(my_list)
+	>>> print(sorted_list)
+	[1, 2, 3, 4, 5]
+	>>> print(my_list)
+	[1, 4, 2, 3, 5]
+
+Checking for negative numbers:
+::
+
+	>>> my_list = MyList()
+	>>> my_list.append(1)
+	>>> my_list.append(4)
+	>>> my_list.append(-1)
+	>>> print(my_list)
+	[1, 4, -1]
+	>>> my_list.print_sorted()
+	[-1, 1, 4]
+
+Checking for all negative numbers:
+::
+
+        >>> my_list = MyList()
+	>>> my_list.append(-10)
+	>>> my_list.append(-1)
+	>>> my_list.append(-7)
+	>>> my_list.append(-2)
+	>>> my_list.append(-8)
+	>>> print(my_list)
+	[-10, -1, -7, -2, -8]
+	>>> my_list.print_sorted()
+	[-10, -8, -7, -2, -1]
+	>>> print(my_list)
+	[-10, -1, -7, -2, -8]
+
+Checking for too many arguments:
+::
+
+  	>>> my_list.print_sorted(1)
+  	Traceback (most recent call last):
+    	...
+	TypeError: print_sorted() takes 1 positional argument but 2 were given
