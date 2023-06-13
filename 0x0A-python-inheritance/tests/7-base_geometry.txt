@@ -28,7 +28,7 @@ Calling the `area` method with an argument:
 	>>> base_g.area(1)
 	Traceback (most recent call last):
   	...
-	TypeError: area() takes 1 positional arguments but 2 were given
+	TypeError: area() takes 0 positional arguments but 1 was given
 
 Calling the `integer_validator` method with a name string and an integer value:
 ::
