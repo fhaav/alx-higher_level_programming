@@ -13,10 +13,9 @@ class MyInt(int):
     def __eq__(self, other):
         """Override the == operator."""
         if isinstance(other, MyInt):
-            return super().__ne__(other)
+            return self != other
         return False
 
     def __ne__(self, other):
         """Override the != operator."""
-        if isinstance(other, MyInt):
-            return super().__eq__(other)
+        return not self.__eq__(other)
