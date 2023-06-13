@@ -11,4 +11,8 @@ def inherits_from(obj, a_class):
     (directly or indirectly) from a_class, otherwise False
     """
 
-    return issubclass(type(obj), a_class)
+    for cls in type(obj).__mro__:
+        if cls is not a_class and issubclass(cls, a_class):
+            return True
+
+    return False
