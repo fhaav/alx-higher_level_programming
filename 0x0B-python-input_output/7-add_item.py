@@ -15,12 +15,17 @@ def add_items_to_list():
     """
 
     filename = "add_item.json"
+    new_items = sys.argv[1:]
+    existing_items = []
+
     try:
-        item_list = load_from_json_file(filename)
+        with open(filename, 'r') as file:
+            content = file.read()
+            if len(content) > 0:
+                existing_items = load_from_json_file(filename)
     except FileNotFoundError:
-        item_list = []
+        existing_items = []
 
-        item_list.extend(sys.argv[1:])
-        save_to_json_file(item_list, filename)
+    updated_items = existing_items + new_items
 
-        add_items_to_list()
+    save_to_json_file(updated_items, filename)
