@@ -29,7 +29,7 @@ class Student:
             if isinstance(attrs, list):
                 return {key: self.__dict__[key]
                         for key in self.__dict__ if key in attrs}
-                return self.__dict__
+            return self.__dict__
 
         def reload_from_json(self, json):
             for key, value in json.items():
