@@ -27,5 +27,6 @@ class Student:
         Returns a dictionary representation of the student instance.
         """
         if isinstance(attrs, list):
-            return {key: getattr(self, key) for key in attrs}
+            return {key: self.__dict__[key]
+                    for key in self.__dict__ if key in attrs}
         return self.__dict__
