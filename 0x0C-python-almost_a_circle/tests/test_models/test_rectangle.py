@@ -68,13 +68,17 @@ class TestRectangle(unittest.TestCase):
 
     def display_test(self):
         """ Test the display method """
-        r1 = Rectangle(6, 9)
-        expected_output = "####\n####\n####\n####\n####\n####\n"
-        self.assertEqual(self.capture_stdout(r1.display), expected_output)
+        r1 = Rectangle(6, 9, 4, 4)
+        expected_output = "\n\n ##\n ##\n ##\n"
+        with patch("sys.stdout", new=StringIO()) as output:
+            r1.display()
+            self.assertEqual(output.getvalue(), expected_output)
 
-        r2 = Rectangle(4, 4)
-        expected_output = "##\n##\n"
-        self.assertEqual(self.capture_stdout(r2.display), expected_output)
+        r2 = Rectangle(5, 4, 1, 0)
+        expected_output = " ###\n ###\n"
+        with patch("sys.stdout", new=StringIO()) as output:
+            r2.display()
+            self.assertEqual(output.getvalue(), expected_output)
 
     def stdout_capture(self, method):
         """
