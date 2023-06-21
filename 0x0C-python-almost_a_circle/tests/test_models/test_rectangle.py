@@ -37,6 +37,23 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r.x, 1)
         self.assertEqual(r.y, 2)
 
+        with self.assertRaises(TypeError):
+            r.width = "invalid"
+        with self.assertRaises(TypeError):
+            r.height = "invalid"
+        with self.assertRaises(TypeError):
+            r.x = "invalid"
+        with self.assertRaises(TypeError):
+            r.y = "invalid"
+        with self.assertRaises(ValueError):
+            r.width = 0
+        with self.assertRaises(ValueError):
+            r.height = -5
+        with self.assertRaises(ValueError):
+            r.x = -2
+        with self.assertRaises(ValueError):
+            r.y = -3
+
 
 if __name__ == '__main__':
     unittest.main()
