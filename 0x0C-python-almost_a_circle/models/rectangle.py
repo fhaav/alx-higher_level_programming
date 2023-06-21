@@ -109,7 +109,7 @@ class Rectangle(Base):
             self.id, self.x, self.y, self.width, self.height
         )
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """
         Updates attributes of the Rectangle instance in a certain order
         """
@@ -117,3 +117,6 @@ class Rectangle(Base):
             attrs = ["id", "width", "height", "x", "y"]
             for i in range(len(args)):
                 setattr(self, attrs[i], args[i])
+        else:
+            for key, value in kwargs.items():
+                setattr(self, key, value)
