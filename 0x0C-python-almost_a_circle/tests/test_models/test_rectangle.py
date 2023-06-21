@@ -91,6 +91,16 @@ class TestRectangle(unittest.TestCase):
             method()
         return f.getvalue()
 
+    def representation_of_str_test(self):
+        """
+        Representation of the test string of the Rectangle instance
+        """
+        r1 = Rectangle(6, 9, 2, 1, 18)
+        self.assertEqual(str(r1), "[Rectangle] (18) 2/1 - 6/9")
+
+        r2 = Rectangle(7, 7, 1)
+        self.assertEqual(str(r2), "[Rectangle] (1) 1/0 - 7/7")
+
 
 if __name__ == '__main__':
     unittest.main()
