@@ -16,6 +16,17 @@ class SquareTest(unittest.TestCase):
         self.s2 = Square(4, 4)
         self.s3 = Square(6, 1, 6)
 
+    @property
+    def size(self):
+        """ Getter method for size """
+        return self.width
+
+    @size.setter
+    def size(self, value):
+        """ Setter method for size """
+        self.width = value
+        self.height = value
+
     def test_inheritance(self):
         """Tests if Square inherits from Rectangle"""
         self.assertIsInstance(self.s1, Square)
