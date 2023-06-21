@@ -2,6 +2,7 @@
 
 import unittest
 from models.rectangle import Rectangle
+from models.base import Base
 
 
 class TestRectangle(unittest.TestCase):
@@ -64,6 +65,31 @@ class TestRectangle(unittest.TestCase):
 
         r3 = Rectangle(8, 7, 0, 0, 12)
         self.assertEqual(r3.area(), 56)
+
+    def display_test(self):
+        """ Test the display method """
+        r1 = Rectangle(6, 9)
+        expected_output = "####\n####\n####\n####\n####\n####\n"
+        self.assertEqual(self.capture_stdout(r1.display), expected_output)
+
+        r2 = Rectangle(4, 4)
+        expected_output = "##\n##\n"
+        self.assertEqual(self.capture_stdout(r2.display), expected_output)
+
+    def stdout_capture(self, method):
+        """
+        Captures the standard output of a method
+
+        Returns:
+            str: The captured stdout
+        """
+        import io
+        from contextlib import redirect_stdout
+
+        f = io.StringIO()
+        with redirect_stdout(f):
+            method()
+        return f.getvalue()
 
 
 if __name__ == '__main__':
