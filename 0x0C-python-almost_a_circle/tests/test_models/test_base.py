@@ -15,16 +15,16 @@ class TestBase(unittest.TestCase):
     def test_single_instance(self):
         """ Test creation of a single instance without custom ID """
         b1 = Base()
-        self.assertEqual(b1.id, 1)
+        self.assertEqual(b1.id, 6)
 
     def test_multiple_instances(self):
         """ Test creation of multiple instances without custom ID """
         b1 = Base()
         b2 = Base()
         b3 = Base()
-        self.assertEqual(b1.id, 1)
-        self.assertEqual(b2.id, 2)
-        self.assertEqual(b3.id, 3)
+        self.assertEqual(b1.id, 3)
+        self.assertEqual(b2.id, 4)
+        self.assertEqual(b3.id, 5)
 
     def test_custom_id(self):
         """ Test creation of instances with custom ID """

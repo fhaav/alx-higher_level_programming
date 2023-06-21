@@ -1,0 +1,1 @@
+This directory contains a Python project called "Almost a Circle" which is part of the curriculum at ALX School. The project focuses on implementing classes to represent rectangles and circles with various functionalities like calculating area, perimeter, serialization, deserialization, and more.
