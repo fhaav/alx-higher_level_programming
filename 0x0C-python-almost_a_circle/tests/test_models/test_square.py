@@ -77,6 +77,40 @@ class SquareTest(unittest.TestCase):
         self.assertEqual(str(self.s2), expected_output_s2)
         self.assertEqual(str(self.s3), expected_output_s3)
 
+    def update_args_test(self):
+        self.rect.update(10)
+        self.rect.update(10, 8)
+        self.rect.update(10, 8, 5)
+        self.rect.update(10, 8, 5, 7)
+
+        expected_results = [
+            "[Rectangle] (10) 2/3 - 4/6",
+            "[Rectangle] (10) 2/3 - 8/6",
+            "[Rectangle] (10) 5/3 - 8/6",
+            "[Rectangle] (10) 5/7 - 8/6"
+        ]
+
+        for expected_result in expected_results:
+            self.assertEqual(str(self.rect), expected_result)
+
+    def update_kwargs_test(self):
+        self.rect.update(id=10)
+        self.rect.update(id=10, width=8)
+        self.rect.update(id=10, width=8, height=5)
+        self.rect.update(id=10, width=8, height=5, x=7)
+        self.rect.update(id=10, width=8, height=5, x=7, y=9)
+
+        expected_outputs = [
+            "[Rectangle] (10) 2/3 - 4/6",
+            "[Rectangle] (10) 2/3 - 8/6",
+            "[Rectangle] (10) 2/3 - 8/5",
+            "[Rectangle] (10) 7/3 - 8/5",
+            "[Rectangle] (10) 7/9 - 8/5"
+        ]
+
+        for expected_output in expected_outputs:
+            self.assertEqual(str(self.rect), expected_output)
+
 
 if __name__ == '__main__':
     unittest.main()

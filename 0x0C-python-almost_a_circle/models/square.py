@@ -37,3 +37,14 @@ class Square(Rectangle):
         """ Setter method for size """
         self.width = value
         self.height = value
+
+    def update(self, *args, **kwargs):
+        """ Attributes update of an instance in a certain order """
+
+        if args:
+            attrs = ["id", "size", "x", "y"]
+            for i in range(len(args)):
+                setattr(self, attrs[i], args[i])
+        else:
+            for key, value in kwargs.items():
+                setattr(self, key, value)
