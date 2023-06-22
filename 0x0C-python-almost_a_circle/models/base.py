@@ -70,3 +70,17 @@ class Base:
 
             obj.update(**dictionary)
             return obj
+
+    @classmethod
+    def load_from_file(cls):
+        """Load a list of objects from a file in JSON format"""
+        filename = cls.__name__ + ".json"
+        try:
+            with open(filename, 'r') as file:
+                json_string = file.read()
+                json_list = cls.from_json_string(json_string)
+                return [
+                    cls.create(**obj_dict) for obj_dict in json_list
+                ]
+        except FileNotFoundError:
+            return []

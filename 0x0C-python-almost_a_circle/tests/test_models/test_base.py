@@ -26,9 +26,9 @@ class TestBase(unittest.TestCase):
         b1 = Base()
         b2 = Base()
         b3 = Base()
-        self.assertEqual(b1.id, 3)
-        self.assertEqual(b2.id, 4)
-        self.assertEqual(b3.id, 5)
+        self.assertEqual(b1.id, 13)
+        self.assertEqual(b2.id, 14)
+        self.assertEqual(b3.id, 15)
 
     def test_custom_id(self):
         """ Test creation of instances with custom ID """
@@ -84,8 +84,8 @@ class TestBase(unittest.TestCase):
             json_string = file.read()
             obj_list = json.loads(json_string)
             expected_list = [
-                {"id": 6, "width": 10, "height": 7, "x": 2, "y": 8},
-                {"id": 7, "width": 2, "height": 4, "x": 0, "y": 0}
+                {"id": 16, "width": 10, "height": 7, "x": 2, "y": 8},
+                {"id": 17, "width": 2, "height": 4, "x": 0, "y": 0}
             ]
             self.assertEqual(obj_list, expected_list)
 
@@ -103,6 +103,51 @@ class TestBase(unittest.TestCase):
         r2 = Rectangle.create(**r1_dictionary)
         self.assertEqual(r1, r2)
         self.assertIsNot(r1, r2)
+
+    def tearDown(self):
+        """Remove created files after each test"""
+        try:
+            os.remove("Rectangle.json")
+            os.remove("Square.json")
+        except FileNotFoundError:
+            pass
+
+    def test_load_from_file_rectangle(self):
+        """Test the load_from_file method for Rectangle"""
+        r1 = Rectangle(10, 7, 2, 8)
+        r2 = Rectangle(2, 4)
+        Rectangle.save_to_file([r1, r2])
+        rectangles = Rectangle.load_from_file()
+        self.assertIsInstance(rectangles, list)
+        self.assertTrue(all(isinstance(rect, Rectangle)
+                        for rect in rectangles))
+        self.assertEqual(len(rectangles), 2)
+
+    def test_load_from_file_rectangle_empty(self):
+        """
+        Test the load_from_file method for Rectangle with an empty file
+        """
+        rectangles = Rectangle.load_from_file()
+        self.assertIsInstance(rectangles, list)
+        self.assertEqual(len(rectangles), 0)
+
+    def test_load_from_file_square(self):
+        """Test the load_from_file method for Square"""
+        s1 = Square(5)
+        s2 = Square(7, 9, 1)
+        Square.save_to_file([s1, s2])
+        squares = Square.load_from_file()
+        self.assertIsInstance(squares, list)
+        self.assertTrue(all(isinstance(square, Square) for square in squares))
+        self.assertEqual(len(squares), 2)
+
+    def test_load_from_file_square_empty(self):
+        """
+        Test the load_from_file method for Square with an empty file
+        """
+        squares = Square.load_from_file()
+        self.assertIsInstance(squares, list)
+        self.assertEqual(len(squares), 2)
 
 
 if __name__ == '__main__':
