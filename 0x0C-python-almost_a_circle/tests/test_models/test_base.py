@@ -96,6 +96,14 @@ class TestBase(unittest.TestCase):
         except FileNotFoundError:
             pass
 
+    def create_test(self):
+        """Test the create class method"""
+        r1 = Rectangle(3, 5, 1)
+        r1_dictionary = r1.to_dictionary()
+        r2 = Rectangle.create(**r1_dictionary)
+        self.assertEqual(r1, r2)
+        self.assertIsNot(r1, r2)
+
 
 if __name__ == '__main__':
     unittest.main()
