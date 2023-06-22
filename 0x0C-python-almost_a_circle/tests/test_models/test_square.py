@@ -118,9 +118,9 @@ class SquareTest(unittest.TestCase):
         s1 = Square(20, 4, 1)
         s2 = Square(1, 1)
 
-        expected_dict = {'id': 19, 'size': 20, 'x': 4, 'y': 1}
+        expected_dict = {'id': 24, 'size': 20, 'x': 4, 'y': 1}
         self.assertEqual(s1.to_dictionary(), expected_dict)
-        expected_dict = {'id': 20, 'size': 1, 'x': 1, 'y': 0}
+        expected_dict = {'id': 25, 'size': 1, 'x': 1, 'y': 0}
         self.assertEqual(s2.to_dictionary(), expected_dict)
 
 

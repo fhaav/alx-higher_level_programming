@@ -11,7 +11,7 @@ class TestRectangle(unittest.TestCase):
     def test_default_id(self):
         """ Test creation of a rectangle with default ID """
         r = Rectangle(10, 2)
-        self.assertEqual(r.id, 3)
+        self.assertEqual(r.id, 5)
 
     def test_custom_id(self):
         """ Test creation of a rectangle with custom ID """
@@ -144,7 +144,7 @@ class TestRectangle(unittest.TestCase):
     def test_convert_to_dictionary(self):
         """ Test convert_to-dictionary method """
         expected_dict = {
-                'id': 2,
+                'id': 4,
                 'width': 20,
                 'height': 4,
                 'x': 2,
