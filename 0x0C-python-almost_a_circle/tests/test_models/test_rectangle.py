@@ -11,7 +11,7 @@ class TestRectangle(unittest.TestCase):
     def test_default_id(self):
         """ Test creation of a rectangle with default ID """
         r = Rectangle(10, 2)
-        self.assertEqual(r.id, 2)
+        self.assertEqual(r.id, 3)
 
     def test_custom_id(self):
         """ Test creation of a rectangle with custom ID """
@@ -140,6 +140,28 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r.height, 6)
         self.assertEqual(r.x, 8)
         self.assertEqual(r.y, 9)
+
+    def test_convert_to_dictionary(self):
+        """ Test convert_to-dictionary method """
+        expected_dict = {
+                'id': 2,
+                'width': 20,
+                'height': 4,
+                'x': 2,
+                'y': 12
+        }
+        rect = Rectangle(20, 4, 2, 12)
+        self.assertEqual(rect.to_dictionary(), expected_dict)
+
+    def test_from_dictionary(self):
+        """Test creating Rectangle from dictionary"""
+        dictionary = {'id': 4, 'width': 7, 'height': 5, 'x': 0, 'y': 0}
+        rect = Rectangle.from_dictionary(dictionary)
+        self.assertEqual(rect.id, 4)
+        self.assertEqual(rect.width, 7)
+        self.assertEqual(rect.height, 5)
+        self.assertEqual(rect.x, 0)
+        self.assertEqual(rect.y, 0)
 
 
 if __name__ == '__main__':
