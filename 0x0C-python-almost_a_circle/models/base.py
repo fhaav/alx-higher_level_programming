@@ -60,7 +60,7 @@ class Base:
     def create(cls, **dictionary):
         """Create an instance with all attributes already set"""
         if issubclass(cls, Base):
-            if cls.__name__ == "Rectangle":
+            if cls.__name__ == "Base":
                 return Base(dictionary.get("id", None))
 
             if cls.__name__ == "Square":
