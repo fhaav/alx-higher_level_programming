@@ -2,23 +2,25 @@
 function secondB (args) {
   args = args.map(Number);
 
-  if (args.length <= 2) {
+  if (args.length < 2) {
     return 0;
   }
 
-  let firstMax = Math.max(args[0], args[1]);
-  let secondMax = Math.min(args[0], args[1]);
-
-  for (let i = 2; i < args.length; i++) {
-    if (args[i] > firstMax) {
-      secondMax = firstMax;
-      firstMax = args[i];
-    } else if (args[i] > secondMax && args[i] !== firstMax) {
-      secondMax = args[i];
+  let maxnum = args[0];
+  for (let i = 0; i < args.length; i++) {
+    if (maxnum < args[i]) {
+      maxnum = args[i];
     }
   }
 
-  return secondMax;
+  let secondn = args[0];
+  for (let i = 0; i < args.length; i++) {
+    if ((secondn === maxnum || secondn < args[i]) && args[i] !== maxnum) {
+      secondn = args[i];
+    }
+  }
+
+  return secondn;
 }
 
 const result = secondB(process.argv.slice(2));
