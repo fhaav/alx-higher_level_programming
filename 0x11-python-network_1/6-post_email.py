@@ -13,4 +13,4 @@ if __name__ == "__main__":
     res = requests.post(url, data={'email': email})
 
     print(f"Your email is: {email}")
-    print(response.text)
+    print(res.text)
