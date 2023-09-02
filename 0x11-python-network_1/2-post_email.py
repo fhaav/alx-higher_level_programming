@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-# Sends a POST request with an email parameter to a given URL and
-# displays the response body (decoded in utf-8).
+# Sends a POST request with an email parameter to a given URL.
 
 import urllib.parse
 import urllib.request
