@@ -1,1 +1,0 @@
-This directory contains a collection of introductory JavaScript scripts aimed at improving your proficiency in JavaScript programming. Whether you're a beginner or looking to refresh your skills, this exercise which is part of ALX school curriculum will provide you with hands-on coding tasks and solutions.
